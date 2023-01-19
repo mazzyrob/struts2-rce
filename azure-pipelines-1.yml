@@ -1,10 +1,5 @@
 # Maven
-- task: NexusIqPipelineTask@1
-  inputs:
-    nexusIqService: 'RP Nexus IQ'
-    applicationId: 'ADO-struts2-rce__mazzyrob'
-    stage: 'Build'
-    scanTargets: '**/*.war, **/*.ear, **/*.zip, **/*.tar.gz'
+
 # Build your Java project and run tests with Apache Maven.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
@@ -26,3 +21,10 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+
+- task: NexusIqPipelineTask@1
+  inputs:
+    nexusIqService: 'RP Nexus IQ'
+    applicationId: 'ADO-struts2-rce__mazzyrob'
+    stage: 'Build'
+    scanTargets: '**/*.war, **/*.ear, **/*.zip, **/*.tar.gz'
